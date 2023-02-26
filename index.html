@@ -12,11 +12,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script
+      src="https://kit.fontawesome.com/68a2b80444.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <header class="header-section">
-      <h1 class="header-title">Character Database</h1>
+      <div class="logo-container">
+        <img class="header-logo" src="assets/img/LogoSmash.png" />
+        <h1 class="header-title">Character Database</h1>
+      </div>
       <nav class="nav-section">
         <ul class="nav-elements-ul">
           <li class="list-style-none">
@@ -32,6 +39,50 @@
         <label class="form-label" for="search">Search</label>
       </div>
     </header>
-    <main class="main-section"></main>
+    <main class="main-section">
+      <div class="featured-post">
+        <div class="text-container">
+          <h3 class="post-title">Title</h3>
+          <h5 class="post-subtitle">Subtitle</h5>
+          <p class="post-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+            a quibusdam ut iure vel dicta aliquid veniam, recusandae commodi
+            eaque. Error debitis porro vitae quas rem modi alias repellat
+            voluptatibus?
+          </p>
+        </div>
+        <div class="post-image-container">
+          <img
+            class="post-image"
+            src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
+          />
+          <div class="post-image-footer">
+            <div class="post-tags">TAG 1 TAG 2 TAG 3</div>
+            <div>3 Likes</div>
+          </div>
+          <div class="post-buttons">
+            <div class="post-buttons-container">
+              <button class="post-button like">
+                <i class="fas fa-heart"></i>
+                <p>Like</p>
+              </button>
+              <button class="post-button details">
+                <i class="fas fa-folder-open"></i>
+                <p>Details</p>
+              </button>
+              <button class="post-button edit">
+                <i class="fas fa-pen"></i>
+                <p>Edit</p>
+              </button>
+              <button class="post-button delete">
+                <i class="fas fa-trash"></i>
+                <p>Delete</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="assets/js/utils/dataFetcher.js" type="module"></script>
   </body>
 </html>
