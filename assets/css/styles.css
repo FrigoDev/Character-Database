@@ -1,0 +1,207 @@
+/*
+    +------------------------------------+
+    |        Elements in all page        |
+    +------------------------------------+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: var(--primary-font);
+}
+:root {
+    --primary-color: #161e2e;
+    --secondary-color: #fff;
+    --third-color: #66c0f4;
+    --nav-color: #c5cbd8;
+    --nav-color-hover: #c8d0dc;
+    --main-bg-color: #3a6087;
+    --primary-font: "Montserrat", sans-serif;
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+
+/*
+    +------------------------------------+
+    |     Elements in header section     |
+    +------------------------------------+
+*/
+.header-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #20242a;
+    background-image:
+        linear-gradient(
+        #1f2532, #1e242a, #1f2630, #1e2835, #202123
+        );
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.header-logo {
+    max-width: 2rem;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.header-title{
+    text-align: center;
+    color: var(--nav-color);
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    font-weight: 800;
+}
+.nav-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+}
+.nav-elements-ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-elements-li {
+    color: var(--nav-color);
+    display: flex;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+.nav-elements-li:hover {
+    filter: brightness(3);
+    color: var(--nav-color-hover);
+    border-radius: 0.5rem;
+}
+.input-group {
+    position: relative;
+}
+.form-input {
+    width: 100%;
+    background: none;
+    color: var(--nav-color);
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--nav-color);
+}
+  
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-9px) scale(0.7);
+    transform-origin: left top;
+    filter: brightness(3);
+}
+.form-label {
+    color: var(--nav-color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    transform: translateY(10px);
+    transition: transform 0.5s, color 0.3s;
+}
+/*
+    +------------------------------------+
+    |      Elements in main section      |
+    +------------------------------------+
+*/
+.main-section {
+    /*padding: 0 4rem;*/
+    color: #fff;
+    background-color: var(--main-bg-color);
+}
+.featured-post {
+    display: flex;
+    border-bottom: 1px solid var(--secondary-color);
+
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+    /*background-color: #2884ab;
+    background-image:
+        linear-gradient(
+    #1c5779, #1b5f84, #2884ab
+    );*/
+}
+.text-container{
+    margin: 0 4rem;
+}
+.post-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.post-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.post-content {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.post-image-container {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+.post-image {
+    width: 100%;
+}
+.post-image-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1rem 0;
+}
+.post-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.post-button {
+    display: inherit;
+    color: var(--secondary-color);
+    font-size: .8rem;
+    border-radius: 5px;
+    border: 0;
+    padding: 0.5rem;
+}
+.fas {
+    margin-right: 0.3rem;
+    margin-top: 0.1rem;
+}
+.like {
+    background-color: #D04E50;
+}
+.like:hover {
+    background-color: #B12F31;
+}
+.details {
+    background-color: #FFC247;
+}
+.details:hover {
+    background-color: #FFAD0A;
+}
+.edit {
+    background-color: #79B473;
+}
+.edit:hover {
+    background-color: #55924F;
+}
+.delete {
+    background-color: #4A4983;
+}
+.delete:hover {
+    background-color: #35335B;
+}
