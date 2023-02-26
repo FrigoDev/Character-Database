@@ -1,0 +1,155 @@
+/*
+    +------------------------------------+
+    |    Elements in featured section    |
+    +------------------------------------+
+*/
+.main-section {
+    /*padding: 0 4rem;*/
+    color: #fff;
+    background-color: var(--main-bg-color);
+}
+.featured-post {
+    display: flex;
+    border-bottom: 1px solid var(--secondary-color);
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+    /*background-color: #2884ab;
+    background-image:
+        linear-gradient(
+    #1c5779, #1b5f84, #2884ab
+    );*/
+}
+.text-container{
+    margin: 0 15rem;
+}
+.post-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.post-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.post-content {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.post-image-container {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+.post-image {
+    width: 100%;
+}
+.post-image-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1rem 0;
+}
+.post-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.post-button {
+    cursor: pointer;
+    display: inherit;
+    color: var(--secondary-color);
+    font-size: .8rem;
+    border-radius: 5px;
+    border: 0;
+    padding: 0.5rem;
+}
+.fas {
+    margin-right: 0.3rem;
+    margin-top: 0.1rem;
+}
+.like {
+    background-color: #D04E50;
+}
+.like:hover {
+    background-color: #B12F31;
+}
+.details {
+    background-color: #FFC247;
+}
+.details:hover {
+    background-color: #FFAD0A;
+}
+.edit {
+    background-color: #79B473;
+}
+.edit:hover {
+    background-color: #55924F;
+}
+.delete {
+    background-color: #4A4983;
+}
+.delete:hover {
+    background-color: #35335B;
+}
+.featured-post-2 {
+    display: flex;
+    border-bottom: 1px solid var(--secondary-color);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
+}
+.featured-post-2:first-child {
+    border-right: 1px solid var(--secondary-color);
+}
+.featured-card {
+    max-width: 40%;
+    margin: 0 1rem;
+}
+.featured-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/*
+    +------------------------------------+
+    |      Elements in card section      |
+    +------------------------------------+
+*/
+.card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;    
+}
+.card {
+    width: 20rem;
+    margin: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px 8px 0 0;
+}
+.card-body {
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.card-link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
