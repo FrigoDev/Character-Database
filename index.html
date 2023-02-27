@@ -31,7 +31,7 @@
             <a class="nav-elements-li" href="index.html">Home</a>
           </li>
           <li class="list-style-none">
-            <a class="nav-elements-li" href="details.html">Create Post</a>
+            <a class="nav-elements-li" id="open-modal">Create Post</a>
           </li>
         </ul>
       </nav>
@@ -40,6 +40,65 @@
         <label class="form-label" for="search">Search</label>
       </div>
     </header>
+    <article class="tag-filter">
+      <form class="filters">
+        <div class="select-group">
+          <label class="check-group">
+            <input class="select-input" type="checkbox" />
+            <span class="select-span" for="search"></span>
+          </label>
+          <p class="text-select">tag</p>
+        </div>
+      </form>
+    </article>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Post</h5>
+          <span class="close">&times;</span>
+        </div>
+        <form>
+          <div class="modal-input-group">
+            <input class="modal-form-input" type="text" placeholder=" " />
+            <label class="modal-form-label" for="title">Title</label>
+          </div>
+          <div class="modal-input-group">
+            <input class="modal-form-input" type="text" placeholder=" " />
+            <label class="modal-form-label" for="subtitle">Subtitle</label>
+          </div>
+          <div class="modal-input-group">
+            <textarea
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+              rows="3"
+            ></textarea>
+            <label class="modal-form-label" for="content">Content</label>
+          </div>
+          <div class="modal-input-group">
+            <input class="modal-form-input" type="text" placeholder=" " />
+            <label class="modal-form-label" for="image">Image URL</label>
+          </div>
+          <div class="modal-input-group d-flex" style="align-items: center">
+            <p>Author:</p>
+            <select name="tags" id="tags">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div style="align-items: center" class="modal-input-group d-flex">
+            <div class="select-group">
+              <label class="check-group">
+                <input class="select-input" type="checkbox" />
+                <span class="select-span" for="search"></span>
+              </label>
+              <p>tag</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <main class="main-section">
       <article class="featured-post">
         <div class="text-container">
@@ -211,6 +270,7 @@
         </div>
       </div>
     </main>
+    <script src="assets/js/utils/modal.js" type="module"></script>
     <script src="assets/js/index.js" type="module"></script>
   </body>
 </html>
