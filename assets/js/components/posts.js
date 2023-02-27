@@ -28,10 +28,6 @@ const frFeature=(post)=>`<article class="featured-post">
             <p>Details</p>
             </button>
           </a>
-          <button class="post-button edit" post="${post.id}">
-            <i class="fas fa-pen" aria-hidden="true"></i>
-            <p>Edit</p>
-          </button>
           <button class="post-button delete" post="${post.id}">
             <i class="fas fa-trash" aria-hidden="true"></i>
             <p>Delete</p>
@@ -66,10 +62,6 @@ const sdFeature=(post)=>`<article class="featured-card">
             <p>Details</p>
             </button>
           </a>
-          </button>
-          <button class="post-button edit" post="${post.id}">
-            <i class="fas fa-pen" aria-hidden="true"></i>
-            <p>Edit</p>
           </button>
           <button class="post-button delete" post="${post.id}">
             <i class="fas fa-trash" aria-hidden="true"></i>
