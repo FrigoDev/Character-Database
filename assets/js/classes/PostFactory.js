@@ -1,8 +1,7 @@
 import {fetchAllAuthors,fetchAllTags} from '../utils/dataFetcher.js'
 
 
-const createPost=({id,title,subTitle,image,body,createDate,likes,author,tags},AllTags,authors)=>{
-    return {
+const createPost=({id,title,subTitle,image,body,createDate,likes,author,tags},AllTags,authors)=>({
         id,
         title,
         subTitle,
@@ -10,10 +9,9 @@ const createPost=({id,title,subTitle,image,body,createDate,likes,author,tags},Al
         body,
         createDate,
         likes,
-        author:authors.find(apiAuthor=>apiAuthor.id==author),
+        author:authors.find(apiAuthor=>apiAuthor.id===author),
         tags:AllTags.filter(tag=>tags.includes(tag.id))
-    }
-}
+    })
 
 
 export default async(posts)=>{
