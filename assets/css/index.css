@@ -106,11 +106,103 @@
     max-width: 40%;
     margin: 0 1rem;
 }
+.featured-card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
 .featured-card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+@media screen and (max-width: 1120px) {
+    .text-container {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 700px) {
+    .post-buttons-container {
+        padding-bottom: 1rem;
+    }
+    .post-button {
+        font-size: .7rem;
+        margin : 0 0 10px 0;
+    }
+    .card {
+        min-width: 90%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 320px) {
+    .featured-post-2:first-child {
+        margin-bottom: 1rem;
+    }
+    .featured-card {
+        min-width: 100%;
+    }
+    .card {
+        min-width: 95%;
+    }
+}
+/*
+    +------------------------------------+
+    |     Elements in filter section     |
+    +------------------------------------+
+*/
+.filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    background-color: var(--third-color);
+    justify-content: space-around;
+}
+.select-group {
+    display: flex;
+    align-items: center;
+}
+.select-input {
+    display: none;
+}
+.select-span {
+    display: inline-block;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background-color: black;
+    border-radius: 20px;
+    margin-right: 0.3rem;
+    transition: all 0.7s;
+}
+.check-group {
+    font-size: .7rem;
+    cursor: pointer;
+}
+.select-span::after {
+    content: "";
+    position: absolute;
+    border: solid white;
+    border-width: 0 0.2em 0.2em 0;
+    transform: rotate(45deg);
+    width: 0.50em;
+    height: 1em;
+    left : 0.6em;
+    top : 0.3em;
+    opacity: 0;
+    transition: .3s ease;
+}
+.check-group input:checked ~ .select-span::after {
+    opacity: 1;
+}
+.text-select {
+    font-size: .9rem;
+    color: var(--secondary-color);
 }
 /*
     +------------------------------------+
