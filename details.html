@@ -31,7 +31,7 @@
             <a class="nav-elements-li" href="index.html">Home</a>
           </li>
           <li class="list-style-none">
-            <a class="nav-elements-li" href="details.html">Create Post</a>
+            <a class="nav-elements-li" id="open-modal">Create Post</a>
           </li>
         </ul>
       </nav>
@@ -40,46 +40,84 @@
         <label class="form-label" for="search">Search</label>
       </div>
     </header>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Post</h5>
+          <span class="close">&times;</span>
+        </div>
+        <form class="create-post">
+          <div class="modal-input-group">
+            <input
+              name="Title"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="title">Title</label>
+          </div>
+          <div class="modal-input-group">
+            <input
+              name="Subtitle"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="subtitle">Subtitle</label>
+          </div>
+          <div class="modal-input-group">
+            <textarea
+              name="Content"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+              rows="3"
+            ></textarea>
+            <label class="modal-form-label" for="content">Content</label>
+          </div>
+          <div class="modal-input-group">
+            <input
+              name="ImageURL"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="image">Image URL</label>
+          </div>
+          <div class="modal-input-group d-flex" style="align-items: center">
+            <p class="modal-author">Author:</p>
+            <select name="author" id="author"></select>
+          </div>
+          <div class="modal-input-group">
+            <input
+              name="Date"
+              class="modal-form-input"
+              type="date"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="image">Date</label>
+          </div>
+          <div class="modal-input-group">
+            <input
+              class="modal-form-input"
+              name="Tags"
+              type="text"
+              id="tags-input"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="image">Tags</label>
+            <div class="tags-container"></div>
+          </div>
+          <div class="warning"></div>
+          <div class="success"></div>
+          <button class="modal-button" type="submit">Create Post</button>
+        </form>
+      </div>
+    </div>  
     <main class="main-section">
       <article class="card-container">
-        <div class="card">
-          <div class="text-container">
-            <h2 class="card-title">Title</h2>
-            <h5 class="card-subtitle">Subtitle</h5>
-            <p class="card-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis a quibusdam ut iure vel dicta aliquid veniam,
-              recusandae commodi eaque. Error debitis porro vitae quas rem modi
-              alias repellat voluptatibus?
-            </p>
-          </div>
-          <div class="post-image-container">
-            <img
-              class="post-image"
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-            />
-            <div class="post-image-footer">
-              <div class="post-tags">TAG 1 TAG 2 TAG 3</div>
-              <div>3 Likes</div>
-            </div>
-            <p class="card-author">Post by: Eider</p>
-            <div class="post-buttons">
-              <div class="post-buttons-container">
-                <button class="post-button like">
-                  <i class="fas fa-heart"></i>
-                  <p>Like</p>
-                </button>
-                <button class="post-button edit">
-                  <i class="fas fa-pen"></i>
-                  <p>Edit</p>
-                </button>
-                <button class="post-button delete">
-                  <i class="fas fa-trash"></i>
-                  <p>Delete</p>
-                </button>
-              </div>
-            </div>
-          </div>
+        <div class="loader-container">
+          <span class="loader"></span>
         </div>
       </article>
       <article class="comments-container">
@@ -89,7 +127,7 @@
             <form class="comments-input">
               <div class="select-group">
                 <label for="comment-user">Choose your user:</label>
-                <select class="user-select" id="comment-user">
+                <select name="user" class="user-select" id="comment-user">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -100,27 +138,19 @@
               >
               <textarea
                 class="comment-content"
+                name="comment"
                 id="comment-content"
                 cols="70"
                 rows="10"
               ></textarea>
+              <button class="comment-button" type="submit">Submit</button>
             </form>
           </div>
           <div class="post-comments">
-            <div class="comment">
-              <div class="comment-author">
-                Eider
-              </div>
-              <div class="post-comment-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis a quibusdam ut iure vel dicta aliquid veniam,
-                recusandae commodi eaque. Error debitis porro vitae quas rem modi
-                alias repellat voluptatibus?
-            </div>
-          </div>
         </div>
       </article>
     </main>
     <script src="assets/js/details.js" type="module"></script>
+    <script src="assets/js/index.js" type="module"></script>
   </body>
 </html>
