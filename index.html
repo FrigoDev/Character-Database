@@ -36,20 +36,18 @@
         </ul>
       </nav>
       <div class="input-group">
-        <input class="form-input" type="text" placeholder=" " />
+        <input
+          name="search"
+          class="form-input"
+          type="text"
+          id="input-search"
+          placeholder=" "
+        />
         <label class="form-label" for="search">Search</label>
       </div>
     </header>
     <article class="tag-filter">
-      <form class="filters">
-        <div class="select-group">
-          <label class="check-group">
-            <input class="select-input" type="checkbox" />
-            <span class="select-span" for="search"></span>
-          </label>
-          <p class="text-select">tag</p>
-        </div>
-      </form>
+      <form class="filters"></form>
     </article>
     <div id="modal" class="modal">
       <div class="modal-content">
@@ -57,17 +55,28 @@
           <h5 class="modal-title">Create Post</h5>
           <span class="close">&times;</span>
         </div>
-        <form>
+        <form class="create-post">
           <div class="modal-input-group">
-            <input class="modal-form-input" type="text" placeholder=" " />
+            <input
+              name="Title"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
             <label class="modal-form-label" for="title">Title</label>
           </div>
           <div class="modal-input-group">
-            <input class="modal-form-input" type="text" placeholder=" " />
+            <input
+              name="Subtitle"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
             <label class="modal-form-label" for="subtitle">Subtitle</label>
           </div>
           <div class="modal-input-group">
             <textarea
+              name="Content"
               class="modal-form-input"
               type="text"
               placeholder=" "
@@ -76,186 +85,47 @@
             <label class="modal-form-label" for="content">Content</label>
           </div>
           <div class="modal-input-group">
-            <input class="modal-form-input" type="text" placeholder=" " />
+            <input
+              name="ImageURL"
+              class="modal-form-input"
+              type="text"
+              placeholder=" "
+            />
             <label class="modal-form-label" for="image">Image URL</label>
           </div>
           <div class="modal-input-group d-flex" style="align-items: center">
             <p class="modal-author">Author:</p>
-            <select name="tags" id="tags">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+            <select name="author" id="author"></select>
           </div>
-          <div style="align-items: center" class="modal-input-group d-flex">
-            <div class="select-group">
-              <label class="check-group">
-                <input class="select-input" type="checkbox" />
-                <span class="select-span" for="search"></span>
-              </label>
-              <p class="modal-tags">tag</p>
-            </div>
+          <div class="modal-input-group">
+            <input
+              name="Date"
+              class="modal-form-input"
+              type="date"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="image">Date</label>
           </div>
+          <div class="modal-input-group">
+            <input
+              class="modal-form-input"
+              name="Tags"
+              type="text"
+              id="tags-input"
+              placeholder=" "
+            />
+            <label class="modal-form-label" for="image">Tags</label>
+            <div class="tags-container"></div>
+          </div>
+          <div class="alert"></div>
+          <div class="success"></div>
+          <button class="modal-button" type="submit">Create Post</button>
         </form>
       </div>
     </div>
     <main class="main-section">
-      <article class="featured-post">
-        <div class="text-container">
-          <h3 class="post-title">Title</h3>
-          <h5 class="post-subtitle">Subtitle</h5>
-          <p class="post-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            a quibusdam ut iure vel dicta aliquid veniam, recusandae commodi
-            eaque. Error debitis porro vitae quas rem modi alias repellat
-            voluptatibus?
-          </p>
-        </div>
-        <div class="post-image-container">
-          <img
-            class="post-image"
-            src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-          />
-          <div class="post-image-footer">
-            <div class="post-tags">TAG 1 TAG 2 TAG 3</div>
-            <div>3 Likes</div>
-          </div>
-          <div class="post-buttons">
-            <div class="post-buttons-container">
-              <button class="post-button like">
-                <i class="fas fa-heart"></i>
-                <p>Like</p>
-              </button>
-              <button class="post-button details">
-                <i class="fas fa-folder-open"></i>
-                <p>Details</p>
-              </button>
-              <button class="post-button delete">
-                <i class="fas fa-trash"></i>
-                <p>Delete</p>
-              </button>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="featured-post-2">
-        <div class="featured-card">
-          <div class="featured-card-text-container">
-            <h3 class="featured-card-title">Title</h3>
-            <h5 class="featured-card-subtitle">Subtitle</h5>
-            <p class="featured-card-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis a quibusdam ut iure vel dicta aliquid veniam,
-              recusandae commodi eaque. Error debitis porro vitae quas rem modi
-              alias repellat voluptatibus?
-            </p>
-          </div>
-          <div class="featured-card-image-container">
-            <img
-              class="featured-card-image"
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-            />
-            <div class="post-image-footer">
-              <div class="post-tags">TAG 1 TAG 2 TAG 3</div>
-              <div>3 Likes</div>
-            </div>
-            <div class="post-buttons">
-              <div class="post-buttons-container">
-                <button class="post-button like">
-                  <i class="fas fa-heart"></i>
-                  <p>Like</p>
-                </button>
-                <button class="post-button details">
-                  <i class="fas fa-folder-open"></i>
-                  <p>Details</p>
-                </button>
-                <button class="post-button delete">
-                  <i class="fas fa-trash"></i>
-                  <p>Delete</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <article class="featured-card">
-          <div class="featured-card-text-container">
-            <h3 class="featured-card-title">Title</h3>
-            <h5 class="featured-card-subtitle">Subtitle</h5>
-            <p class="featured-card-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis a quibusdam ut iure vel dicta aliquid veniam,
-              recusandae commodi eaque. Error debitis porro vitae quas rem modi
-              alias repellat voluptatibus?
-            </p>
-          </div>
-          <div class="featured-card-image-container">
-            <img
-              class="featured-card-image"
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-            />
-            <div class="post-image-footer">
-              <div class="post-tags">TAG 1 TAG 2 TAG 3</div>
-              <div>3 Likes</div>
-            </div>
-            <div class="post-buttons">
-              <div class="post-buttons-container">
-                <button class="post-button like">
-                  <i class="fas fa-heart"></i>
-                  <p>Like</p>
-                </button>
-                <button class="post-button details">
-                  <i class="fas fa-folder-open"></i>
-                  <p>Details</p>
-                </button>
-                <button class="post-button delete">
-                  <i class="fas fa-trash"></i>
-                  <p>Delete</p>
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </article>
-      <div class="card-section">
-        <div class="card">
-          <div class="card-image-container">
-            <img
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-              class="card-image"
-            />
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Title</h3>
-            <h5 class="card-author">Author</h5>
-          </div>
-          <a class="card-link" href="#"></a>
-        </div>
-        <div class="card">
-          <div class="card-imge-container">
-            <img
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-              class="card-image"
-            />
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Title</h3>
-            <h5 class="card-author">Author</h5>
-          </div>
-          <a class="card-link" href="#"></a>
-        </div>
-        <div class="card">
-          <div class="card-image-container">
-            <img
-              src="https://cdn1.elecspo.com/uploads/13/2018/09/sorasmashbrosultimate-1.jpg"
-              class="card-image"
-            />
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Title</h3>
-            <h5 class="card-author">Author</h5>
-          </div>
-          <a class="card-link" href="#"></a>
-        </div>
+      <div class="loader-container">
+        <span class="loader"></span>
       </div>
     </main>
     <script src="assets/js/utils/modal.js" type="module"></script>
