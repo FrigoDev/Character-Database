@@ -139,6 +139,21 @@
     padding: 0.5rem;
     font-size: 1rem;
 }
+.comment-button {
+    cursor: pointer;
+    display: inherit;
+    float: right;
+    margin-top: 0.8rem;
+    color: var(--secondary-color);
+    font-size: .8rem;
+    border-radius: 5px;
+    border: 0;
+    padding: 0.5rem;
+    background-color: #4A4983;
+}
+.comment-button:hover {
+    background-color: #35335B;
+}
 .comment-content:focus-visible {
     outline: solid 2px var(--third-color);
 }
