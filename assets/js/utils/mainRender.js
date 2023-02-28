@@ -2,6 +2,7 @@ import feed from "../classes/PostSingleton.js";
 import { featured, feed as genFeed } from "../components/posts.js";
 import tagFilter from "../components/tagFilter.js";
 
+const modal = document.getElementById("alert-modal");
 const postSection = document.querySelector(".main-section");
 let tagsOnFilter = [];
 let searchOnfilter = "";
@@ -83,7 +84,16 @@ document.addEventListener("onupdate", () => {
     postSection.querySelectorAll("button.post-button.delete").forEach((del) => {
       const deleteposts = del.getAttribute("post");
       del.addEventListener("click", async () => {
-        await feed.deletePost(Number(deleteposts));
+        modal.style.display = "block";
+        modal
+          .querySelector("#delete-post")
+          .addEventListener("click", async () => {
+            await feed.deletePost(Number(deleteposts));
+            modal.style.display = "none";
+          });
+        modal.querySelector("#cancel-delete").addEventListener("click", () => {
+          modal.style.display = "none";
+        });
       });
     });
   }
