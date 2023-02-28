@@ -7,6 +7,8 @@ import {
 } from "./crudAPI.js";
 import GenComment from "../components/comment.js";
 
+const modal = document.getElementById("alert-modal");
+
 document.addEventListener("onupdate", async () => {
   const postSection = document.querySelector(".card-container");
   const commentsSection = document.querySelector(".post-comments");
@@ -22,8 +24,17 @@ document.addEventListener("onupdate", async () => {
   postSection
     .querySelector("button.post-button.delete")
     .addEventListener("click", async () => {
-      await feed.deletePost(post.id);
-      window.location.href = "index.html";
+      modal.style.display = "block";
+      modal
+        .querySelector("#delete-post")
+        .addEventListener("click", async () => {
+          await feed.deletePost(Number(post.id));
+          modal.style.display = "none";
+          window.location.href = "index.html";
+        });
+      modal.querySelector("#cancel-delete").addEventListener("click", () => {
+        modal.style.display = "none";
+      });
     });
 
   const [userComments, users] = await Promise.all([
