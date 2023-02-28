@@ -3,7 +3,7 @@ import {
   fetchPostById,
   addlikeToPost,
   deletePost,
-} from "../utils/dataFetcher.js";
+} from "../utils/crudAPI.js";
 import PostFactory from "./PostFactory.js";
 
 let loading = false;

@@ -1,4 +1,4 @@
-import {fetchAllAuthors,fetchAllTags} from '../utils/dataFetcher.js'
+import {fetchAllAuthors,fetchAllTags} from '../utils/crudAPI.js'
 
 
 const createPost=({id,title,subTitle,image,body,createDate,likes,author,tags},AllTags,authors)=>({

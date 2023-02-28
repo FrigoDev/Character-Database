@@ -1,5 +1,4 @@
 import { API_URL } from '../constants/constants.js';
-
 const fetchAllPosts =async () => (await fetch(`${API_URL}/posts?_sort=createDate,id&_order=desc`)).json();
 const fetchPostById =async (id) => (await fetch(`${API_URL}/posts/${id}`)).json();
 const fetchAllTags =async () => (await fetch(`${API_URL}/tags`)).json();
@@ -14,11 +13,16 @@ const addlikeToPost =async (postId,newLikesNumber,post) => {
         author:post.author.id,
         tags:post.tags.map(tag=>tag.id) 
     })
-})
-return {...post,likes:newLikesNumber}
+ })
+ return {...post,likes:newLikesNumber}
 };
 const deletePost =async (id)=>{await fetch(`${API_URL}/posts/${id}`,{method: 'DELETE'})
 }
+const createComment =async (comment)=>{await fetch(`${API_URL}/comments`,{
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(comment)
+    })};
 
 export {
     fetchAllPosts,
@@ -28,6 +32,7 @@ export {
     fetchAllUsers,
     fetchCommentsByPostId,
     addlikeToPost,
-    deletePost
+    deletePost,
+    createComment
 }
 
