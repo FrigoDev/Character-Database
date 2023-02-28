@@ -77,11 +77,12 @@ const sdFeature = (post) => `<article class="featured-card">
 export const featured = (posts) => {
   const secondaryFeature = `<article class="featured-post-2">
     ${
-      posts.slice(1, 3).length !== 0 &&
-      posts
-        .slice(1, 3)
-        .map((post) => sdFeature(post))
-        .join("\n")
+      posts.slice(1, 3).length !== 0
+        ? posts
+            .slice(1, 3)
+            .map((post) => sdFeature(post))
+            .join("\n")
+        : ""
     }
     </article>`;
   return [frFeature(posts[0]), secondaryFeature].join("\n");
