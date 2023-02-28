@@ -33,7 +33,7 @@ inputTags.addEventListener("input", (e) => {
     .join("\n");
 });
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -47,6 +47,7 @@ function handleSubmit(event) {
   const tags = setTags;
   const errors = [];
   const warning = document.querySelector(".warning");
+  const success = document.querySelector(".success");
   if (title.length < 3) {
     errors.push("Title must be at least 3 characters long");
   }
@@ -56,10 +57,7 @@ function handleSubmit(event) {
   if (content.length < 3) {
     errors.push("Content must be at least 3 characters long");
   }
-  if (!/^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$/.test(imageURL)) {
-    errors.push("Image URL must be a valid URL");
-  }
-  //0200/02/12
+
   if (
     !/^(20[0-9]{2})\/(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])$/.test(
       createDate
@@ -77,8 +75,10 @@ function handleSubmit(event) {
   if (errors.length > 0) {
     warning.innerHTML = errors.map((error) => `<li>${error}</li>`).join("\n");
     warning.classList.add("show");
+    success.classList.remove("show");
     return;
   }
+  warning.classList.remove("show");
   const post = {
     title,
     subTitle: subtitle,
@@ -89,6 +89,9 @@ function handleSubmit(event) {
     likes: 0,
     createDate,
   };
-  feed.createNewPost(post);
+  await feed.createNewPost(post);
+  success.innerHTML = "Post created successfully";
+  success.classList.add("show");
+  form.reset();
 }
 fomularioCreador.addEventListener("submit", handleSubmit);
