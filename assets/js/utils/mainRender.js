@@ -4,7 +4,7 @@ import tagFilter from "../components/tagFilter.js";
 
 const postSection = document.querySelector(".main-section");
 let tagsOnFilter = [];
-
+let searchOnfilter = "";
 export const renderCleaner = (element) => {
   element.innerHTML = "";
 };
@@ -25,6 +25,26 @@ const filterPosts = (event) => {
   postSection.innerHTML =
     featured(filteredPosts.slice(0, 3)) +
     genFeed(filteredPosts.slice(3, filteredPosts.length));
+  postSection.querySelectorAll("button.post-button.like").forEach((like) => {
+    const likedposts = like.getAttribute("post");
+    like.addEventListener("click", async () => {
+      await feed.likePost(Number(likedposts));
+    });
+  });
+  postSection.querySelectorAll("button.post-button.delete").forEach((del) => {
+    const deleteposts = del.getAttribute("post");
+    del.addEventListener("click", async () => {
+      await feed.deletePost(Number(deleteposts));
+    });
+  });
+};
+
+export const updateSearch = (text) => {
+  if (searchOnfilter !== text) {
+    searchOnfilter = text.toLocaleLowerCase();
+    const onupdateEvent = new Event("onupdate");
+    document.dispatchEvent(onupdateEvent);
+  }
 };
 
 document.addEventListener("onupdate", () => {
@@ -39,17 +59,32 @@ document.addEventListener("onupdate", () => {
       }
       return acc;
     }, []);
+
   tagsFilter.innerHTML = tagFilter(tags);
   tagsFilter.querySelectorAll("input").forEach((input) => {
     input.addEventListener("change", filterPosts);
   });
-
-  const featuredHTML = featured(posts.slice(0, 3));
-  postSection.innerHTML = featuredHTML + genFeed(posts.slice(3, posts.length));
-  postSection.querySelectorAll("button.post-button.like").forEach((like) => {
-    const likedposts = like.getAttribute("post");
-    like.addEventListener("click", async () => {
-      await feed.likePost(Number(likedposts));
+  const filteredPosts =
+    searchOnfilter === ""
+      ? posts
+      : posts.filter((post) =>
+          post.title.toLocaleLowerCase().includes(searchOnfilter)
+        );
+  if (filterPosts.length > 0) {
+    const featuredHTML = featured(filteredPosts.slice(0, 3));
+    postSection.innerHTML =
+      featuredHTML + genFeed(filteredPosts.slice(3, filteredPosts.length));
+    postSection.querySelectorAll("button.post-button.like").forEach((like) => {
+      const likedposts = like.getAttribute("post");
+      like.addEventListener("click", async () => {
+        await feed.likePost(Number(likedposts));
+      });
     });
-  });
+    postSection.querySelectorAll("button.post-button.delete").forEach((del) => {
+      const deleteposts = del.getAttribute("post");
+      del.addEventListener("click", async () => {
+        await feed.deletePost(Number(deleteposts));
+      });
+    });
+  }
 });
