@@ -1,19 +1,19 @@
-import { URL } from "../constants/constants.js"
+import { URL } from "../constants/constants.js";
 
-const frFeature=(post)=>`<article class="featured-post">
+const frFeature = (post) => `<article class="featured-post">
     <div class="text-container" bis_skin_checked="1">
       <h3 class="post-title">${post.title}</h3>
       <h5 class="post-subtitle">${post.subTitle}</h5>
       <p class="post-content">
-       ${
-        post.body
-       }
+       ${post.body}
       </p>
     </div>
     <div class="post-image-container" bis_skin_checked="1">
       <img class="post-image" src="${post.image}">
       <div class="post-image-footer" bis_skin_checked="1">
-        <div class="post-tags" bis_skin_checked="1">${post.tags.map((tag)=>tag.name).join(', ')}</div>
+        <div class="post-tags" bis_skin_checked="1">${post.tags
+          .map((tag) => tag.name)
+          .join(", ")}</div>
         <div bis_skin_checked="1">${post.likes} Likes</div>
       </div>
       <div class="post-buttons" bis_skin_checked="1">
@@ -35,8 +35,8 @@ const frFeature=(post)=>`<article class="featured-post">
         </div>
       </div>
     </div>
-  </article>` 
-const sdFeature=(post)=>`<article class="featured-card">
+  </article>`;
+const sdFeature = (post) => `<article class="featured-card">
     <div class="featured-card-text-container" bis_skin_checked="1">
       <h3 class="featured-card-title">${post.title}</h3>
       <h5 class="featured-card-subtitle">${post.subTitle}</h5>
@@ -47,7 +47,9 @@ const sdFeature=(post)=>`<article class="featured-card">
     <div class="featured-card-image-container" bis_skin_checked="1">
       <img class="featured-card-image" src="${post.image}">
       <div class="post-image-footer" bis_skin_checked="1">
-        <div class="post-tags" bis_skin_checked="1">${post.tags.map((tag)=>tag.name).join(', ')}</div>
+        <div class="post-tags" bis_skin_checked="1">${post.tags
+          .map((tag) => tag.name)
+          .join(", ")}</div>
         <div bis_skin_checked="1">${post.likes} Likes</div>
       </div>
       <div class="post-buttons" bis_skin_checked="1">
@@ -70,17 +72,22 @@ const sdFeature=(post)=>`<article class="featured-card">
         </div>
       </div>
     </div>
-  </article>`
+  </article>`;
 
-export const featured= (posts)=>{
-    const secondaryFeature=`<article class="featured-post-2">
-    ${posts.slice(1,3).length!==0&&posts.slice(1,3).
-        map((post)=>sdFeature(post)).join("\n")}
-    </article>`
-    return [frFeature(posts[0]),secondaryFeature].join("\n")
-}
+export const featured = (posts) => {
+  const secondaryFeature = `<article class="featured-post-2">
+    ${
+      posts.slice(1, 3).length !== 0 &&
+      posts
+        .slice(1, 3)
+        .map((post) => sdFeature(post))
+        .join("\n")
+    }
+    </article>`;
+  return [frFeature(posts[0]), secondaryFeature].join("\n");
+};
 
-const renderPost=(post)=>`<div class="card" bis_skin_checked="1">
+const renderPost = (post) => `<div class="card" bis_skin_checked="1">
     <div class="card-image-container" bis_skin_checked="1">
       <img src="${post.image}" class="card-image">
     </div>
@@ -89,12 +96,11 @@ const renderPost=(post)=>`<div class="card" bis_skin_checked="1">
       <h5 class="card-author">${`${post.author.name} ${post.author.lastName}`}</h5>
     </div>
     <a class="card-link" href="${`${URL}/details.html?id=${post.id}`}"></a>
-  </div>`
+  </div>`;
 
-export const feed=(posts)=> {
-    const newFeed=posts.map(
-        (post)=>renderPost(post)
-    )
-    return `<div class="card-section" bis_skin_checked="1">${newFeed.join("\n")}</div>`
-} 
-
+export const feed = (posts) => {
+  const newFeed = posts.map((post) => renderPost(post));
+  return `<div class="card-section" bis_skin_checked="1">${newFeed.join(
+    "\n"
+  )}</div>`;
+};

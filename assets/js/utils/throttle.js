@@ -1,6 +1,6 @@
 const throttle = (callback, time) => {
   let throttleTimeout = false;
-  return function(...args) {
+  return function (...args) {
     if (!throttleTimeout) {
       callback.apply(this, args);
       throttleTimeout = true;

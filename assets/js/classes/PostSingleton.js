@@ -3,6 +3,7 @@ import {
   fetchPostById,
   addlikeToPost,
   deletePost,
+  createPost,
 } from "../utils/crudAPI.js";
 import PostFactory from "./PostFactory.js";
 
@@ -68,6 +69,18 @@ class Feed {
     loading = true;
     await deletePost(id);
     posts = posts.filter((post) => post.id !== id);
+    const onUpdate = new CustomEvent("onupdate", {
+      detail: {
+        type: "post",
+      },
+    });
+    document.dispatchEvent(onUpdate);
+    loading = false;
+  }
+  async createNewPost(post) {
+    loading = true;
+    await createPost(post);
+    posts = posts.concat(post);
     const onUpdate = new CustomEvent("onupdate", {
       detail: {
         type: "post",

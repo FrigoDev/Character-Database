@@ -1,4 +1,4 @@
-const postDetail=(post)=>`<div class="card" bis_skin_checked="1">
+const postDetail = (post) => `<div class="card" bis_skin_checked="1">
      <div class="text-container" bis_skin_checked="1">
        <h2 class="card-title">${post.title}</h2>
        <h5 class="card-subtitle">${post.subTitle}</h5>
@@ -9,7 +9,9 @@ const postDetail=(post)=>`<div class="card" bis_skin_checked="1">
      <div class="post-image-container" bis_skin_checked="1">
        <img class="post-image" src="${post.image}">
        <div class="post-image-footer" bis_skin_checked="1">
-         <div class="post-tags" bis_skin_checked="1">${post.tags.map((tag)=>tag.name).join(', ')}</div>
+         <div class="post-tags" bis_skin_checked="1">${post.tags
+           .map((tag) => tag.name)
+           .join(", ")}</div>
          <div bis_skin_checked="1">${post.likes}  Likes</div>
        </div>
        <p class="card-author">Post by:${`${post.author.name} ${post.author.lastName}`}</p>
@@ -30,6 +32,6 @@ const postDetail=(post)=>`<div class="card" bis_skin_checked="1">
          </div>
        </div>
      </div>
-   </div>` 
+   </div>`;
 
 export default postDetail;
